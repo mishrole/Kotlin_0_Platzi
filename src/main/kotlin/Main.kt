@@ -1,58 +1,41 @@
-/*
-Variables de Sólo Lectura para Constantes
-- Declaradas en tiempo de Compilación
-- Se generan antes del RUN
-- Sabemos que NO va a cambiar
-*/
-const val PI = 3.1416
-
 fun main(args: Array<String>) {
-    println("Hello World!")
+    val name = "Mitchell"
 
-    /* Podemos omitir el tipo explícito
-       Kotlin se basa en el tipo de dato asignado
+    if (name.isNotEmpty()) {
+        println("Name length is ${name.length}")
+    } else {
+        println("Error, empty variable")
+    }
 
-       El uso depende de las convenciones del equipo
-    */
+    val colorName = "Crimson"
 
-    // Variables de Lectura y Escritura
-    var money : Int = 10
-    println(money)
-    money = 5
-    println(money)
+    when (colorName) {
+        // Inline
+        "Yellow" -> println("$colorName is a happy color")
+        // Multiple lines
+        // Many conditions, same result
+        "Red", "Crimson" -> {
+            println("$colorName is the color of love")
+        }
 
-    /* Variables de Sólo Lectura
-       - Declarada en tiempo de Ejecución
-    */
-    val nombre = "Mitchell"
-    println(nombre)
-    println(PI)
+        else -> println("Error, I don't have information for $colorName color")
+    }
 
-    // Tipos de Datos
-    // Boolean
-    val boolean : Boolean = true
-    // Long (Soporta una gran cantidad de números)
-    val longNumber : Long = 3L
-    // Dobles
-    val doubleNumber : Double = 2.7182
-    // Flotantes
-    val floatNumber : Float = 1.1f
+    val code = 200
 
-    // En Kotlin todo es un objeto
+    when (code) {
+        in 200..299 -> println("Yay!")
+        in 400..500 -> println("Something went wrong")
+        else -> println("Code $code unknown")
+    }
 
-    val firstValue = 20
-    val secondValue = 10
-    //    val thirdValue = firstValue.minus(secondValue)
-    val thirdValue = firstValue - secondValue
-    // Minus <- ctrl + B
-    println(thirdValue)
+    val shoesSize = 45
+    val message = when(shoesSize) {
+        41,43 -> "Available"
+        42, 44 -> "2 in stock"
+        45 -> "Sold out"
+        else -> "Oops, max size is 45"
+    }
 
-    /* En tiempo de ejecución Kotlin lo compila como un primitivo
-    siempre y cuando no sea nullable */
-
-    // Cadenas de Texto
-    val lastname = "Venn"
-    val name = "Klaus"
-    val fullname = "$name $lastname" // Template (Interpolación)
-    println(fullname)
+    println(message)
 }
