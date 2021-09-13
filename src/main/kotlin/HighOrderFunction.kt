@@ -1,3 +1,5 @@
+// https://www.tutorialesprogramacionya.com/kotlinya/detalleconcepto.php?punto=36&codigo=36&inicio=30
+
 fun highOrderFunction() {
     // High Order Function
     // Open box (lambda)
